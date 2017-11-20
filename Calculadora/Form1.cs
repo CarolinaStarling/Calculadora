@@ -46,7 +46,7 @@ namespace Calculadora
                     break;
 
                 case '-':
-                    Resultado.Text = (decimal.Parse(valores[0]) - decimal.Parse(valores[1])).ToString();
+                    Resultado.Text = valores[0] == "" ? ((decimal.Parse(valores[1]) * -1) - decimal.Parse(valores[2])).ToString() : (decimal.Parse(valores[0]) - decimal.Parse(valores[1])).ToString();
                     TempMemory = decimal.Parse(Resultado.Text);
                     break;
 
@@ -298,6 +298,18 @@ namespace Calculadora
         {
             Resultado.Text = "0";
             TempMemory = 0;
+        }
+
+        private void btnMaisMenos_Click(object sender, EventArgs e)
+        {
+            decimal value = Resultado.Text[0] == '-' 
+                            ? Resultado.Text.Substring(1).ContainsAny("+", "-", "*", "/") 
+                            ? decimal.Parse(Resultado.Text.Substring(0, Resultado.Text.Length - 1)) 
+                            : decimal.Parse(Resultado.Text) : Resultado.Text.ContainsAny("+", "-", "*", "/") 
+                            ? decimal.Parse(Resultado.Text.Substring(0, Resultado.Text.Length - 1)) 
+                            : decimal.Parse(Resultado.Text);
+
+            Resultado.Text = (value * (-1)).ToString();
         }
     }
 

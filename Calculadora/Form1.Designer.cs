@@ -277,6 +277,7 @@
             this.btnMaisMenos.TabIndex = 23;
             this.btnMaisMenos.Text = "±";
             this.btnMaisMenos.UseVisualStyleBackColor = true;
+            this.btnMaisMenos.Click += new System.EventHandler(this.btnMaisMenos_Click);
             // 
             // button15
             // 
