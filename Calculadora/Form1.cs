@@ -51,8 +51,15 @@ namespace Calculadora
                     break;
 
                 case '/':
-                    Resultado.Text = (decimal.Parse(valores[0]) / decimal.Parse(valores[1])).ToString();
-                    TempMemory = decimal.Parse(Resultado.Text);
+                    if(valores[1]=="0")
+                    {
+                        Resultado.Text = "Impossível realizar a divisão por 0";
+                    }
+                    else
+                    {
+                        Resultado.Text = (decimal.Parse(valores[0]) / decimal.Parse(valores[1])).ToString();
+                        TempMemory = decimal.Parse(Resultado.Text);
+                    }
                     break;
 
 
@@ -310,6 +317,65 @@ namespace Calculadora
                             : decimal.Parse(Resultado.Text);
 
             Resultado.Text = (value * (-1)).ToString();
+        }
+
+        private void btnRaiz_Click(object sender, EventArgs e)
+        {
+            double value = Resultado.Text[0] == '-'
+                            ? Resultado.Text.Substring(1).ContainsAny("+", "-", "*", "/")
+                            ? double.Parse(Resultado.Text.Substring(0, Resultado.Text.Length - 1))
+                            : double.Parse(Resultado.Text) : Resultado.Text.ContainsAny("+", "-", "*", "/")
+                            ? double.Parse(Resultado.Text.Substring(0, Resultado.Text.Length - 1))
+                            : double.Parse(Resultado.Text);
+
+            if (value <= 0)
+            {
+                Resultado.Text = "Impossível fazer a operação.";
+            }
+
+            else
+            {
+                Resultado.Text = Math.Sqrt(value).ToString();
+                TempMemory = decimal.Parse(Resultado.Text);
+            }
+
+        }
+
+        private void btnPorcentagem_Click(object sender, EventArgs e)
+        {
+            var values = Resultado.Text.Split(new char[] { '+', '-', '*', '/' });
+            try
+            {
+                 if (values[0] == "")
+                 {
+                     Resultado.Text = "-" + values[0] + Resultado.Text[values[1].Length].ToString() + decimal.Parse(values[2]) / 100;
+                 }
+                 else
+                 {
+                     Resultado.Text = values[0] + Resultado.Text[values[0].Length].ToString() + decimal.Parse(values[1]) / 100;
+                 }
+                 if (Resultado.Text[0] != '0')
+                 {
+                     VerificarOperacao();
+                 }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btnInverse_Click(object sender, EventArgs e)
+        {
+            bool thereIsOperator = Resultado.Text[0] == '-'
+                                   ? Resultado.Text.Substring(1).ContainsAny("+", "-", "*", "/")
+                                   : Resultado.Text.ContainsAny("+", "-", "*", "/");
+
+            if (!thereIsOperator)
+            {
+                Resultado.Text = "1/" + Resultado.Text;
+            }
+
         }
     }
 

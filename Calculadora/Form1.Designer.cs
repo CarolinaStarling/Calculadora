@@ -48,8 +48,8 @@
             this.btnSubtracao = new System.Windows.Forms.Button();
             this.btnDivisao = new System.Windows.Forms.Button();
             this.btnMaisMenos = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.btnInverse = new System.Windows.Forms.Button();
+            this.btnPorcentagem16 = new System.Windows.Forms.Button();
             this.btn6 = new System.Windows.Forms.Button();
             this.btn9 = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.Button();
@@ -279,25 +279,27 @@
             this.btnMaisMenos.UseVisualStyleBackColor = true;
             this.btnMaisMenos.Click += new System.EventHandler(this.btnMaisMenos_Click);
             // 
-            // button15
+            // btnInverse
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(227, 180);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(47, 28);
-            this.button15.TabIndex = 24;
-            this.button15.Text = "1/x";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnInverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInverse.Location = new System.Drawing.Point(227, 180);
+            this.btnInverse.Name = "btnInverse";
+            this.btnInverse.Size = new System.Drawing.Size(47, 28);
+            this.btnInverse.TabIndex = 24;
+            this.btnInverse.Text = "1/x";
+            this.btnInverse.UseVisualStyleBackColor = true;
+            this.btnInverse.Click += new System.EventHandler(this.btnInverse_Click);
             // 
-            // button16
+            // btnPorcentagem16
             // 
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(227, 147);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(47, 28);
-            this.button16.TabIndex = 25;
-            this.button16.Text = "%";
-            this.button16.UseVisualStyleBackColor = true;
+            this.btnPorcentagem16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPorcentagem16.Location = new System.Drawing.Point(227, 147);
+            this.btnPorcentagem16.Name = "btnPorcentagem16";
+            this.btnPorcentagem16.Size = new System.Drawing.Size(47, 28);
+            this.btnPorcentagem16.TabIndex = 25;
+            this.btnPorcentagem16.Text = "%";
+            this.btnPorcentagem16.UseVisualStyleBackColor = true;
+            this.btnPorcentagem16.Click += new System.EventHandler(this.btnPorcentagem_Click);
             // 
             // btn6
             // 
@@ -341,6 +343,7 @@
             this.btnRaiz.TabIndex = 29;
             this.btnRaiz.Text = "√";
             this.btnRaiz.UseVisualStyleBackColor = true;
+            this.btnRaiz.Click += new System.EventHandler(this.btnRaiz_Click);
             // 
             // btn0
             // 
@@ -387,8 +390,8 @@
             this.Controls.Add(this.btnC);
             this.Controls.Add(this.btn9);
             this.Controls.Add(this.btn6);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button15);
+            this.Controls.Add(this.btnPorcentagem16);
+            this.Controls.Add(this.btnInverse);
             this.Controls.Add(this.btnMaisMenos);
             this.Controls.Add(this.btnDivisao);
             this.Controls.Add(this.btnSubtracao);
@@ -439,8 +442,8 @@
         private System.Windows.Forms.Button btnSubtracao;
         private System.Windows.Forms.Button btnDivisao;
         private System.Windows.Forms.Button btnMaisMenos;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button btnInverse;
+        private System.Windows.Forms.Button btnPorcentagem16;
         private System.Windows.Forms.Button btn6;
         private System.Windows.Forms.Button btn9;
         private System.Windows.Forms.Button btnC;
